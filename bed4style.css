@@ -1,0 +1,529 @@
+:root {
+    --primary-color: #198754;
+    --secondary-color: #3498db;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --card-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('assets/mufiddepan.jpg');
+    background-size: cover; /* atau contain, 100% 100% */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* agar tetap saat scroll */
+    background-color: #c3cfe2; /* warna fallback */
+}
+
+/* Header yang lebih kecil */
+.hospital-header {
+    background: linear-gradient(135deg, #212529a1 0%, #1a2530a9 100%);
+    color: white;
+    padding: 8px 0; /* Diperkecil dari 20px */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 15px; /* Diperkecil dari 25px */
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Diperbesar dari 15px untuk logo yang lebih besar */
+    padding: 0 10px; /* Tambahkan padding horizontal */
+}
+
+.hospital-logo {
+    width: 100px; /* Diperbesar dari 70px */
+    height: 100px; /* Diperbesar dari 70px */
+    object-fit: contain;
+    border-radius: 12px; /* Diperbesar dari 10px */
+    background: white;
+    padding: 10px; /* Diperbesar dari 8px */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    order: 0; /* Logo rumah sakit di kiri */
+}
+
+.lafki-logo {
+    width: 100px; /* Diperbesar dari 70px */
+    height: 100px; /* Diperbesar dari 70px */
+    object-fit: contain;
+    border-radius: 12px; /* Diperbesar dari 10px */
+    background: white;
+    padding: 10px; /* Diperbesar dari 8px */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    order: 2; /* Logo Lafki di kanan */
+}
+
+.hospital-info {
+    text-align: center;
+    flex: 1;
+    order: 1; /* Info di tengah */
+}
+
+.hospital-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.8rem; /* Diperkecil dari 2.2rem */
+    margin-bottom: 3px; /* Diperkecil dari 5px */
+    color: white;
+}
+
+.hospital-address {
+    font-size: 1.5rem; /* Diperkecil dari 1rem */
+    opacity: 0.9;
+    margin-bottom: 8px; /* Diperkecil dari 10px */
+}
+
+.current-time {
+    background: rgba(255,255,255,0.15);
+    padding: 6px 15px; /* Diperkecil */
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.2rem; /* Diperkecil */
+}
+
+.refresh-info {
+    text-align: center;
+    margin: 10px 0 20px; /* Diperkecil */
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.refresh-info i {
+    color: var(--secondary-color);
+    margin-right: 8px;
+}
+
+.room-status-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: none;
+    transition: var(--transition);
+}
+
+.room-status-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.card-header-custom {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+    color: white;
+    padding: 18px; /* Diperkecil sedikit */
+    border-bottom: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem; /* Diperkecil dari 1.3rem */
+    letter-spacing: 0.5px;
+}
+
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.status-table th {
+    background-color: var(--light-bg);
+    padding: 16px 15px; /* Diperkecil dari 18px */
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid #eaeaea;
+    text-align: center;
+}
+
+.status-table td {
+    padding: 18px 15px; /* Diperkecil dari 20px */
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.05rem; /* Diperkecil dari 1.1rem */
+    font-weight: 500;
+}
+
+.status-table tr:last-child td {
+    border-bottom: none;
+}
+
+.status-table tr:hover td {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.kelas-badge {
+    display: inline-block;
+    padding: 7px 16px; /* Diperkecil */
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem; /* Diperkecil */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.total-count {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.4rem; /* Diperkecil dari 1.5rem */
+}
+
+.occupied-count {
+    color: var(--danger-color);
+    font-weight: 700;
+    font-size: 1.4rem; /* Diperkecil dari 1.5rem */
+}
+
+.available-count {
+    color: var(--success-color);
+    font-weight: 700;
+    font-size: 1.4rem; /* Diperkecil dari 1.5rem */
+}
+
+.availability-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-success { background-color: var(--success-color); }
+.dot-warning { background-color: var(--warning-color); }
+.dot-total { background-color: var(--primary-color); }
+.dot-occupied { background-color: var(--danger-color); }
+.dot-available { background-color: var(--success-color); }
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: var(--transition);
+    border-top: 4px solid;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+}
+
+.summary-card.total {
+    border-color: var(--primary-color);
+}
+
+.summary-card.occupied {
+    border-color: var(--danger-color);
+}
+
+.summary-card.available {
+    border-color: var(--success-color);
+}
+
+.summary-icon {
+    font-size: 2.2rem; /* Diperkecil dari 2.5rem */
+    margin-bottom: 12px; /* Diperkecil dari 15px */
+    display: block;
+}
+
+.summary-card.total .summary-icon { color: var(--primary-color); }
+.summary-card.occupied .summary-icon { color: var(--danger-color); }
+.summary-card.available .summary-icon { color: var(--success-color); }
+
+.summary-number {
+    font-size: 2.5rem; /* Diperkecil dari 2.8rem */
+    font-weight: 700;
+    margin: 8px 0; /* Diperkecil dari 10px */
+    font-family: 'Poppins', sans-serif;
+}
+
+.summary-label {
+    font-size: 1.05rem; /* Diperkecil dari 1.1rem */
+    color: #666;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px; /* Diperkecil dari 40px */
+    padding: 15px; /* Diperkecil dari 20px */
+    color: #666;
+    font-size: 0.85rem; /* Diperkecil dari 0.9rem */
+    border-top: 1px solid #eaeaea;
+}
+
+.auto-refresh-badge {
+    position: fixed;
+    bottom: 57px;
+    right: 20px;
+    background: #198754;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bagah-badge {
+    position: fixed;
+    bottom: 57px;
+    left: 20px;
+    background: #198754;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.badge-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+}
+
+/* Progress bar for auto-refresh */
+.refresh-progress {
+    height: 4px;
+    width: 100%;
+    background: #eaeaea;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+.refresh-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+    animation: progressBar 20s linear infinite;
+}
+
+@keyframes progressBar {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hospital-name {
+        font-size: 1.5rem; /* Diperkecil dari 1.6rem */
+    }
+    
+    .hospital-logo,
+    .lafki-logo {
+        width: 80px; /* Diperkecil dari 100px untuk tablet */
+        height: 80px; /* Diperkecil dari 100px untuk tablet */
+    }
+    
+    .status-table th, 
+    .status-table td {
+        padding: 14px 10px; /* Diperkecil */
+        font-size: 0.9rem; /* Diperkecil dari 0.95rem */
+    }
+    
+    .kelas-badge {
+        padding: 5px 10px; /* Diperkecil */
+        font-size: 0.85rem; /* Diperkecil dari 0.9rem */
+    }
+    
+    .summary-number {
+        font-size: 2rem; /* Diperkecil dari 2.2rem */
+    }
+    
+    .card-header-custom {
+        font-size: 1.05rem; /* Diperkecil dari 1.1rem */
+        padding: 14px; /* Diperkecil dari 15px */
+    }
+    
+    .hospital-address {
+        font-size: 0.85rem; /* Diperkecil untuk mobile */
+    }
+    
+    .current-time {
+        font-size: 0.85rem; /* Diperkecil untuk mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-container {
+        flex-direction: row; /* Tetap row untuk layout horizontal */
+        text-align: left;
+        gap: 10px; /* Diperkecil untuk mobile */
+        padding: 0 5px; /* Padding lebih kecil untuk mobile */
+    }
+    
+    .hospital-name {
+        font-size: 1.3rem; /* Diperkecil */
+    }
+    
+    .hospital-logo,
+    .lafki-logo {
+        width: 70px; /* Diperkecil dari 80px untuk mobile */
+        height: 70px; /* Diperkecil dari 80px untuk mobile */
+    }
+    
+    .status-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .auto-refresh-badge {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+    
+    .hospital-address {
+        font-size: 0.8rem; /* Lebih kecil untuk mobile */
+        line-height: 1.3;
+    }
+    
+    .current-time {
+        padding: 5px 12px; /* Diperkecil untuk mobile */
+        font-size: 0.8rem; /* Diperkecil untuk mobile */
+    }
+}
+
+/* Animation for data refresh 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.0s ease-out;
+}
+*/
+
+/* Style untuk icon hospital di logo default */
+.hospital-logo .fas.fa-hospital {
+    font-size: 2.5rem; /* Diperbesar dari 1.8rem untuk logo yang lebih besar */
+    color: var(--secondary-color);
+}
+
+/* Style untuk icon hospital di logo default */
+.hospital-logo .fas.fa-lafki {
+    font-size: 2.5rem; /* Diperbesar dari 1.8rem untuk logo yang lebih besar */
+    color: var(--secondary-color);
+}
+
+/* Footer Styles - Simple Centered */
+#footer {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.simple-footer {
+    background: #198754;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+.footer-item i {
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+/* Responsive untuk footer */
+@media (max-width: 992px) {
+    .footer-content {
+        gap: 20px;
+    }
+    
+    .footer-item {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    #footer {
+        position: static;
+        margin-top: 30px;
+    }
+    
+    .simple-footer {
+        border-radius: 10px;
+        margin: 0 15px 15px 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-item {
+        justify-content: center;
+        width: 100%;
+    }
+}
